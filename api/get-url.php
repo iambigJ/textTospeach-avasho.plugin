@@ -32,7 +32,7 @@ class Getinfoavasho
         if  (!$responce_array['status'] =='success') {
             return;
         }
-        $idlast =  ($responce_array['data'] ['result']['aiResult']);
+        $idlast = isset($responce_array['data']['result']['aiResult']) ? $responce_array['data']['result']['aiResult'] : null;
         if (strlen($idlast) > 5 ) {
             update_post_meta(
                 get_the_ID(),
