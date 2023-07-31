@@ -24,7 +24,7 @@ require avasho_dir . 'asests/test-async.php';
 
 
 
-add_action( 'admin_enqueue_scripts', 'my_enqueue_scripts' ,-1 );
+add_action( 'enqueue_block_editor_assets', 'my_enqueue_scripts' ,-1 );
 function my_enqueue_scripts() {
     // Enqueue your JavaScript file
     wp_enqueue_script( 'my-script', avasho_url . 'asests/alert.js', array( 'jquery' ), '1.0.0', true );
