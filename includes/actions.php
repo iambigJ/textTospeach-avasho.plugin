@@ -7,7 +7,8 @@ class Audio_Functionality_Plugin {
 
     public function check_for_metakey() {
         if ( is_singular() ) {
-            $array_meta = get_post_meta( get_the_ID() );
+            $postid = get_the_ID() ;
+            $array_meta = get_post_meta( $postid );
             if ( array_key_exists( 'avasho_post_fistID', $array_meta ) ) {
                 if ( array_key_exists( 'avasho_post_final', $array_meta ) ) {
 	                $post_id = get_the_ID();
@@ -19,11 +20,9 @@ class Audio_Functionality_Plugin {
         }
     }
     public function get_avasho( $array_meta ) {
-        require avasho_dir . 'api/get-url.php';
-
+        require avasho_dir . 'services/get-url.php';
 
     }
-
 }
 
 new Audio_Functionality_Plugin();

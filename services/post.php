@@ -37,7 +37,6 @@ class Postandupdate {
             return;
         }
 
-
         $response_body = wp_remote_retrieve_body($response);
         $response_array = json_decode($response_body, true);
         $idFirst = $response_array['data']['id'];

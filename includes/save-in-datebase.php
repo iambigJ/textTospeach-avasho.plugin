@@ -13,7 +13,7 @@ class Saveandremove
 
         delete_post_meta($post_ID, 'avasho_post_final');
         // this file adds a column in the postmeta in the database with the value of the first ID and the key of the API key
-        require avasho_dir . 'api/post.php';
+        require avasho_dir . 'services/post.php';
     }
 
     public function removeJKey($post_ID) {

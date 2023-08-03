@@ -3,10 +3,7 @@
  * Class Meta_Boxes
  */
 class Meta_Boxes {
-
-
     function __construct() {
-
         // load class.
         $this->setup_hooks();
     }
@@ -69,6 +66,8 @@ class Meta_Boxes {
                 <?php esc_html_e( 'delete a speach to a post', 'avasho' ); ?>
             </option>
         </select>
+
+
         <div id="custom-meta-error"></div>
         <label for="avashoField"><?php esc_html_e( 'add mp3 to post', 'avasho' ); ?></label>
         <select name="avasho_post_metabox_gender" id="avashoField_gender" class="postbox">
@@ -113,9 +112,12 @@ class Meta_Boxes {
             $gender = $_POST['avasho_post_metabox_gender'];
             do_action('save_avasho_meta_gender',$post_ID,$gender);
         }
+
+
         if ($_POST['avasho_post_metabox'] == 'yes'){
             do_action('save_avasho_metaid',$post_ID);
         }
+
         elseif  ($_POST['avasho_post_metabox'] == 'no'){
             do_action('remove_avasho_metaid',$post_ID);
         }
