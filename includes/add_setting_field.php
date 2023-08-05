@@ -21,7 +21,7 @@ public function avasho_add_menu() {
     }
 //action for adding section and field setting to it
     public function avasho_menu_callback() {
-    include avasho_dir . 'asests/do_setting_field.php';
+    include avasho_dir . 'assets/do_setting_field.php';
     }
 
     public function avasho_add_section() {

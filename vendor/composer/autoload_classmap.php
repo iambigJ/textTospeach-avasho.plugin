@@ -11,7 +11,8 @@ return array(
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
     'Getinfoavasho' => $baseDir . '/services/get-url.php',
     'GrapToPost' => $baseDir . '/includes/add-mp3-to-post.php',
-    'Meta_Boxes' => $baseDir . '/includes/add-metabox.php',
-    'Postandupdate' => $baseDir . '/services/post.php',
     'Saveandremove' => $baseDir . '/includes/save-in-datebase.php',
+    'avashoo\\Enqueuecss' => $baseDir . '/includes/enqueue.php',
+    'avashoo\\Meta_Boxes' => $baseDir . '/includes/add-metabox.php',
+    'avashoo\\Postandupdate' => $baseDir . '/services/post.php',
 );

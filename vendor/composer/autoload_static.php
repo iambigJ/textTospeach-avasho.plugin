@@ -12,9 +12,10 @@ class ComposerStaticInit87a7dbd79a8f2c3a5e2fd4e8c86c0a76
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'Getinfoavasho' => __DIR__ . '/../..' . '/services/get-url.php',
         'GrapToPost' => __DIR__ . '/../..' . '/includes/add-mp3-to-post.php',
-        'Meta_Boxes' => __DIR__ . '/../..' . '/includes/add-metabox.php',
-        'Postandupdate' => __DIR__ . '/../..' . '/services/post.php',
         'Saveandremove' => __DIR__ . '/../..' . '/includes/save-in-datebase.php',
+        'avashoo\\Enqueuecss' => __DIR__ . '/../..' . '/includes/enqueue.php',
+        'avashoo\\Meta_Boxes' => __DIR__ . '/../..' . '/includes/add-metabox.php',
+        'avashoo\\Postandupdate' => __DIR__ . '/../..' . '/services/post.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
