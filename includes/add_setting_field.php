@@ -1,4 +1,5 @@
 <?php
+namespace avashoo;
 class AvashoSettingsPage {
 public function __construct() {
     add_action('admin_menu', array($this, 'avasho_add_menu'));
@@ -92,4 +93,3 @@ public function avasho_add_menu() {
     }
 
 }
-new AvashoSettingsPage();
