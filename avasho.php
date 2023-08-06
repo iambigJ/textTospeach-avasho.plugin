@@ -19,25 +19,23 @@ require_once avasho_dir . 'vendor/autoload.php';
 
 use avashoo\Enqueuecss;
 use avashoo\Meta_Boxes;
-use avashoo\Audio_Functionality_Plugin;
-use avashoo\AvashoSettingsPage;
+use avashoo\audioFunctionalityPlugin;
+use avashoo\avashoSettingsPage;
+use avashoo\Postandupdate;
 class Init
 {
     public function __construct()
     {
-
         Meta_Boxes::init();
-        Enqueuecss::init(avasho_url);
-        new Audio_Functionality_Plugin();
-        new AvashoSettingsPage();
+        Enqueuecss::blocks(avasho_url);
+        Enqueuecss::setting(avasho_url);
+        new avashoSettingsPage();
+        //new audioFunctionalityPlugin();
     }
 }
+
 new Init();
-
-
-
-require avasho_dir . 'includes/add_setting_field.php';
-require avasho_dir . 'includes/add-mp3-to-post.php';
-
+$check_selected = get_post_meta(20);
+$CHECKED = isset($check_selected['avasho_fistID'][0]) ? 'checked' : '';
 //////////////////////////
 

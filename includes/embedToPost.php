@@ -1,4 +1,6 @@
 <?php
+
+namespace avashoo;
 class GrapToPost {
     private $place;
     private $method;

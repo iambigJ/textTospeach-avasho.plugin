@@ -6,13 +6,12 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Audio_Functionality_Plugin' => $baseDir . '/includes/actions.php',
-    'AvashoSettingsPage' => $baseDir . '/includes/add_setting_field.php',
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
     'Getinfoavasho' => $baseDir . '/services/get-url.php',
-    'GrapToPost' => $baseDir . '/includes/add-mp3-to-post.php',
-    'Saveandremove' => $baseDir . '/includes/save-in-datebase.php',
+    'GrapToPost' => $baseDir . '/includes/embedToPost.php',
     'avashoo\\Enqueuecss' => $baseDir . '/includes/enqueue.php',
     'avashoo\\Meta_Boxes' => $baseDir . '/includes/add-metabox.php',
     'avashoo\\Postandupdate' => $baseDir . '/services/post.php',
+    'avashoo\\audioFunctionalityPlugin' => $baseDir . '/includes/actions.php',
+    'avashoo\\avashoSettingsPage' => $baseDir . '/includes/settingField.php',
 );

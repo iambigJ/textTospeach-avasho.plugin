@@ -1,9 +1,10 @@
 <?php
 //array meta come from add_action come mp3
+namespace avashoo;
 class Getinfoavasho
 {
 
-    function __construct($array_meta)
+    static function init($array_meta)
     {
 
         $avashoGetUrl = $array_meta['avasho_post_fistID']['0'];
@@ -36,7 +37,7 @@ class Getinfoavasho
         if (strlen($idlast) > 5 ) {
             update_post_meta(
                 get_the_ID(),
-                'avasho_post_final',
+                'avasho_lastId',
                 "https://panel.iavasho.ir/backend/download/" . $idlast,
             );
         }

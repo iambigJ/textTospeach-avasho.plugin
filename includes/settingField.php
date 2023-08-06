@@ -1,6 +1,6 @@
 <?php
 namespace avashoo;
-class AvashoSettingsPage {
+class avashoSettingsPage {
 public function __construct() {
     add_action('admin_menu', array($this, 'avasho_add_menu'));
     add_action('admin_init', array($this, 'avasho_add_section'),20);
@@ -8,13 +8,13 @@ public function __construct() {
 //action for adding menu
 public function avasho_add_menu() {
     if (!get_option('avasho_api')) {
-    add_option('avasho_api');
+    add_option('avasho_setting');
     }
 
     add_submenu_page(
     'tools.php',
-    'avasho_setting',
-    'avasho_setting',
+    'تبدیل صوت به متن اواشو',
+    'تبدیل صوت به متن اواشو',
     'manage_options',
     'avasho_setting',
     array($this, 'avasho_menu_callback')
@@ -22,45 +22,45 @@ public function avasho_add_menu() {
     }
 //action for adding section and field setting to it
     public function avasho_menu_callback() {
-    include avasho_dir . 'assets/do_setting_field.php';
+    include avasho_dir . 'assets/settingFields/do_setting_field.php';
     }
 
     public function avasho_add_section() {
         add_settings_section(
-        'avasho_section_1',
-        '',
+        'avasho_section_main',
+        'تنظیمات',
         array($this, 'avasho_section_callback'),
         'avasho_setting'
     );
 
-    add_settings_field(
+     add_settings_field(
         'avasho_api_key',
-        'api_key',
+        __('api','avasho'),
         array($this, 'avasho_apifield_callback'),
         'avasho_setting',
-        'avasho_section_1'
+        'avasho_section_main'
     );
+    add_settings_field('avasho_setting_method',
+            'روش فراخوانی در پست ها',
+            [$this,'avasho_setting_method'],
+            'avasho_setting',
+            'avasho_section_main');
 
 
     add_settings_field('avasho_setting_offset',
-        __('place mp3 field','avasho'),
+        __('جایگاه مدیاپلیر در پست ها','avasho'),
             [$this,'avasho_setting_offset'],
         'avasho_setting',
-        'avasho_section_1',
+        'avasho_section_main',
     ''
     );
-    add_settings_field('avasho_setting_method',
-        'method of add mp3',
-        [$this,'avasho_setting_method'],
-        'avasho_setting',
-        'avasho_section_1');
-
 
     register_setting('avasho_setting', 'avasho_setting');
     }
 
     public function avasho_section_callback() {
     }
+
     //option for api key input
     public function avasho_apifield_callback() {
 	    $value = get_option('avasho_setting')['api_key'];
@@ -76,8 +76,8 @@ public function avasho_add_menu() {
 	    $checked2 = checked( $value, 'down of the post', false );
 
 		printf('
-			<div style= "display : inline-block; margin-left:10px; margin-right:10px;"><label><input type="radio" name="avasho_setting[avasho_setting_offset]" value="up of the post" %s>up of the post</label></div>
-		  <div style= "display : inline-block; margin-left:10px; margin-right:10px;"><label><input type="radio" name="avasho_setting[avasho_setting_offset]" value="down of the post" %s>down of the post </label></div>', $checked1,$checked2);
+			<div style= "display : inline-block; margin-left:10px; margin-right:10px;"><label><input type="radio" name="avasho_setting[avasho_setting_offset]" value="up of the post" %s>در بالای پست</label></div>
+		  <div style= "display : inline-block; margin-left:10px; margin-right:10px;"><label><input type="radio" name="avasho_setting[avasho_setting_offset]" value="down of the post" %s>در پایین پست </label></div>', $checked1,$checked2);
     }
     //option for action and filter in the post
     public function avasho_setting_method(){
