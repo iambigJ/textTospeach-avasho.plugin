@@ -13,8 +13,8 @@ class Postandupdate {
     private $content;
     public function __construct($post_ID){
         $this->title = get_the_title($post_ID);
-        $this->$content = get_the_content($post_ID);
-        $this->stripped_content = wp_filter_nohtml_kses($content);
+        $this->content = get_the_content($post_ID);
+        $this->stripped_content = wp_filter_nohtml_kses($this->content);
         $this->token = get_option('avasho_setting')['api_key'];
         $this->url = 'https://panel.iavasho.ir/backend/api/archives/public/'; // Replace with your actual API URL.
         $this->header = array(
@@ -25,7 +25,7 @@ class Postandupdate {
         $this->gender = $gender_post ? $gender_post : '1';
         $this->body = array(
             'title' => $this->title,
-            'text' => '$this->$content',
+            'text' => $this->stripped_content,
             'speaker' => $this->gender
         );
     }
