@@ -2,65 +2,39 @@ const requestOptions = {
     method: "GET",
     redirect: "follow"
 };
-
-const boo = `https://panel.iavasho.ir/backend/download/${myLocalizedData.ajaxurl}`;
-
-const audioElement = document.getElementById('avashoMp3');
-
-function saveBlobDataToLocalStorage(blobData) {
-    localStorage.setItem('savedBlobData', blobData);
+var audioElement
+function saveBlobDataToLocalStorage(blobURL) {
+    localStorage.setItem('savedBlobData', blobURL);
 }
-
+document.addEventListener('DOMContentLoaded', function () {
+     audioElement = document.getElementById('avashoMp3');
+    })
+console.log(audioElement)
 function retrieveBlobDataFromLocalStorage() {
-    return localStorage.getItem('savedBlobData');
+    const savedBlobDataString = localStorage.getItem('savedBlobData');
+    return savedBlobDataString;
 }
 
-function playAudioFromBlob(blobData) {
-    const blob = new Blob([blobData], { type: 'audio/mpeg' });
-    const blobURL = URL.createObjectURL(blob);
+document.addEventListener('DOMContentLoaded', function () {
+    // Check if Blob data is stored in local storage and retrieve it
+    const savedBlobData = retrieveBlobDataFromLocalStorage();
 
-    audioElement.src = blobURL;
-    audioElement.controls = true;
-}
-
-// Check if Blob data is stored in local storage and retrieve it
-const savedBlobData = retrieveBlobDataFromLocalStorage();
-
-if (savedBlobData) {
-    playAudioFromBlob(savedBlobData);
-} else {
-    fetch(boo, requestOptions)
-        .then(response => response.blob())
-        .then(blob => {
-            // Store the Blob data in local storage
-            saveBlobDataToLocalStorage(blob);
-
-            // Play the audio from the Blob
-            playAudioFromBlob(blob);
-        })
-        .catch(error => {
-            console.log('error');
-        });
-}
-
-// Handle page refresh or closing event
-
-
-
-
-    // const boo = `https://panel.iavasho.ir/backend/download/${myLocalizedData.ajaxurl}`
-//     console.log(boo)
-//     fetch(boo, requestOptions)
-//     .then(response => response.blob())
-//     .then(blob => {
-//     //const audioElement = new Audio(); // create a new audio element
-//     var audioElement = document.getElementById('avashoMp3')
-//     var blobURL = URL.createObjectURL(blob); // create blob URL for the blob data
-//     audioElement.src = blobURL; // set the audio source to the blob URL
-//     audioElement.controls = true; // enable the audio controls
-//     // add the audio element to the HTML page
-//
-// }).catch((error)=>{
-//     console.log('error')
-//     });
-
+    // if (savedBlobData != null) {
+    //     audioElement.src = savedBlobData; // Use the saved Blob URL directly
+    // } else {
+        const boo = `https://panel.iavasho.ir/backend/download/${myLocalizedData.ajaxurl}`;
+        fetch(boo, requestOptions)
+            .then(response => response.blob())
+            .then(blob => {
+                // Store the Blob data in local storage
+                const blobURL = URL.createObjectURL(blob);
+                audioElement.src = blobURL;
+                audioElement.controls = true;
+                saveBlobDataToLocalStorage(blobURL);
+                // Play the audio from the Blob
+            })
+            .catch(error => {
+                console.log('error');
+            });
+    // }
+});

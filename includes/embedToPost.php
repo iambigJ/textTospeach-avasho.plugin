@@ -30,9 +30,7 @@ class embedToPost {
         },20);
 
         $action('the_content', [$this, 'modify_content']); // Corrected the filter hook.
-
     }
-
     public function modify_content($content) {
 
         $modified_content = $this->htmlPart();
