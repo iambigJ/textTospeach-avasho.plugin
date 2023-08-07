@@ -92,6 +92,8 @@ class Meta_Boxes {
         }
         if (!isset($_POST['avasho_post_metabox'])){
             delete_post_meta($post_ID, 'avasho_fistID');
+            delete_post_meta($post_ID, 'avasho_mp3Url');
+
         }
         if (isset($_POST['avasho_post_metabox'])) {
                 $response = new Postandupdate($post_ID);

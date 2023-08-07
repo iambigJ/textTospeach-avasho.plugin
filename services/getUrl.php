@@ -7,13 +7,14 @@ class getMp3Url
     private $url;
     private $headers;
     private $args;
-
+    private $token;
     public function __construct($api_id)
     {
+        $this->token = get_option('avasho_setting')['api_key'];
         $this->api_id = $api_id;
         $this->url = "https://panel.iavasho.ir/backend/api/archives/public/{$this->api_id}";
         $this->headers = array(
-            'x-access-token' => 'avasho_api_key', // Replace with the actual API key
+            'x-access-token' => $this->token, // Replace with the actual API key
             'Content-Type' => 'application/json'
         );
         $this->args = array(
@@ -34,16 +35,10 @@ class getMp3Url
         if (is_wp_error($response_send)) {
             return null; // Return null or handle the error as per your requirement
         }
+        $response_body = wp_remote_retrieve_body($response_send);
+        $response_array = json_decode($response_body, true);
+        return $response_array;
 
-        $response_array = json_decode($response_send['body'], true);
-
-        if (!isset($response_array['status']) || $response_array['status'] !== 'success') {
-            return null; // Return null or handle the error as per your requirement
-        }
-
-        $mp3_url = isset($response_array['data']['result']['aiResult']) ? $response_array['data']['result']['aiResult'] : null;
-
-        return $mp3_url;
     }
 }
 

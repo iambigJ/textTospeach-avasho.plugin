@@ -9,9 +9,9 @@ return array(
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
     'avashoo\\Actions' => $baseDir . '/includes/actions.php',
     'avashoo\\Enqueuecss' => $baseDir . '/includes/enqueue.php',
-    'avashoo\\GetMp3Url' => $baseDir . '/services/getUrl.php',
-    'avashoo\\GrapToPost' => $baseDir . '/includes/embedToPost.php',
     'avashoo\\Meta_Boxes' => $baseDir . '/includes/add-metabox.php',
     'avashoo\\Postandupdate' => $baseDir . '/services/post.php',
     'avashoo\\avashoSettingsPage' => $baseDir . '/includes/settingField.php',
+    'avashoo\\embedToPost' => $baseDir . '/includes/embedToPost.php',
+    'avashoo\\getMp3Url' => $baseDir . '/services/getUrl.php',
 );

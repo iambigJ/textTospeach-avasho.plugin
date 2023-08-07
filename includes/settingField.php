@@ -72,24 +72,23 @@ public function avasho_add_menu() {
 	    public function avasho_setting_offset(){
 	    $option = get_option('avasho_setting');
 	    $value = isset($option['avasho_setting_offset']) ? $option['avasho_setting_offset']:'';
-	    $checked1 = checked( $value, 'up of the post', false );
-	    $checked2 = checked( $value, 'down of the post', false );
+	    $checked1 = checked( $value, 'up', false );
+	    $checked2 = checked( $value, 'down', false );
 
 		printf('
-			<div style= "display : inline-block; margin-left:10px; margin-right:10px;"><label><input type="radio" name="avasho_setting[avasho_setting_offset]" value="up of the post" %s>در بالای پست</label></div>
-		  <div style= "display : inline-block; margin-left:10px; margin-right:10px;"><label><input type="radio" name="avasho_setting[avasho_setting_offset]" value="down of the post" %s>در پایین پست </label></div>', $checked1,$checked2);
+			<div style= "display : inline-block; margin-left:10px; margin-right:10px;"><label><input type="radio" name="avasho_setting[avasho_setting_offset]" value="up" %s>در بالای پست</label></div>
+		  <div style= "display : inline-block; margin-left:10px; margin-right:10px;"><label><input type="radio" name="avasho_setting[avasho_setting_offset]" value="down" %s>در پایین پست </label></div>', $checked1,$checked2);
     }
     //option for action and filter in the post
     public function avasho_setting_method(){
         $option = get_option('avasho_setting');
         $value = isset($option['avasho_setting_method']) ? $option['avasho_setting_method']:'';
-        $checked1 = checked( $value, 'add action', false );
-        $checked2 = checked( $value, 'add filter', false );
+        $checked1 = checked( $value, 'add_action', false );
+        $checked2 = checked( $value, 'add_filter', false );
 
         printf('
-            <div style=  "display : inline-block; margin-left:10px; margin-right:10px;"><label ><input type="radio" name="avasho_setting[avasho_setting_method]" value="add action" %s>add action</label></div>
-            <div  style= "display : inline-block; margin-left:10px; margin-right:10px;"><label><input type="radio" name="avasho_setting[avasho_setting_method]" value="add filter" %s>add filter</label></div>',
+            <div style=  "display : inline-block; margin-left:10px; margin-right:10px;"><label ><input type="radio" name="avasho_setting[avasho_setting_method]" value="add_action" %s>add action</label></div>
+            <div  style= "display : inline-block; margin-left:10px; margin-right:10px;"><label><input type="radio" name="avasho_setting[avasho_setting_method]" value="add_filter" %s>add filter</label></div>',
             $checked1,$checked2);
     }
-
 }
