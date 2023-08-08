@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 // Store the Blob data in local storage
                 const blobURL = URL.createObjectURL(blob);
                 audioElement.src = blobURL;
-                audioElement.controls = true;
+               // audioElement.controls = true;
                 saveBlobDataToLocalStorage(blobURL);
                 // Play the audio from the Blob
             })

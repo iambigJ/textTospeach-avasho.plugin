@@ -15,6 +15,7 @@ class ComposerStaticInit87a7dbd79a8f2c3a5e2fd4e8c86c0a76
         'avashoo\\avashoSettingsPage' => __DIR__ . '/../..' . '/includes/settingField.php',
         'avashoo\\embedToPost' => __DIR__ . '/../..' . '/includes/embedToPost.php',
         'avashoo\\getMp3Url' => __DIR__ . '/../..' . '/services/getUrl.php',
+        'avashoo\\mp3Ui' => __DIR__ . '/../..' . '/includes/media-player-ui.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

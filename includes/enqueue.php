@@ -25,7 +25,10 @@ class Enqueuecss {
         add_action('wp_enqueue_scripts', function () use ($avasho_url) {
             // Register the stylesheet
             wp_enqueue_script('avasho_blob', avasho_url . 'assets/enqueueBlob.js', array('jquery'), '1.0', false);
+
+
         });
+
     }
 
 }

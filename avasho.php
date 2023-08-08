@@ -26,12 +26,14 @@ class Init
 {
     public function __construct()
     {
+
+        new Actions();
         Meta_Boxes::init();
         Enqueuecss::blocks(avasho_url);
         Enqueuecss::setting(avasho_url);
-       // Enqueuecss::enqueueBlob(avasho_url);
+        // Enqueuecss::enqueueBlob(avasho_url);
         new avashoSettingsPage();
-        new Actions();
+
     }
 }
 

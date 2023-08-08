@@ -14,4 +14,5 @@ return array(
     'avashoo\\avashoSettingsPage' => $baseDir . '/includes/settingField.php',
     'avashoo\\embedToPost' => $baseDir . '/includes/embedToPost.php',
     'avashoo\\getMp3Url' => $baseDir . '/services/getUrl.php',
+    'avashoo\\mp3Ui' => $baseDir . '/includes/media-player-ui.php',
 );
